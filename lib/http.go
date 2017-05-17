@@ -136,6 +136,10 @@ func GetFile(url string, filename string) {
 		log.Println(err)
 		return
 	}
+	if resp.StatusCode != 200 {
+		log.Printf("wrong status code: %d\n", resp.StatusCode)
+		return
+	}
 	defer resp.Body.Close()
 	f, err := ioutil.TempFile("", "download_")
 	if err != nil {
