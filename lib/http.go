@@ -136,7 +136,7 @@ func GetFile(url string, filename string) {
 		log.Println(err)
 		return
 	}
-	if resp.StatusCode != 200 {
+	if resp.StatusCode != http.StatusOK {
 		log.Printf("wrong status code: %d\n", resp.StatusCode)
 		return
 	}
